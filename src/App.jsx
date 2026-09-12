@@ -236,6 +236,7 @@ export default function App() {
           onSelectPage={selectPage}
           onOpenBenchmark={() => setShowBenchmark(true)}
           onOpenHistory={() => setShowHistory(true)}
+          onOpenAdmin={() => setShowAdmin(true)}
           lang={lang}
         />
         {showAuthModal && (

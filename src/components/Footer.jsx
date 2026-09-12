@@ -1,7 +1,7 @@
 import KisanLogo from './KisanLogo';
 import { translations } from '../lib/translations';
 
-export default function Footer({ onNavigate, onSelectPage, onOpenBenchmark, onOpenHistory, lang = 'EN' }) {
+export default function Footer({ onNavigate, onSelectPage, onOpenBenchmark, onOpenHistory, onOpenAdmin, lang = 'EN' }) {
   const t = translations[lang] || translations.EN;
 
   return (
@@ -121,8 +121,17 @@ export default function Footer({ onNavigate, onSelectPage, onOpenBenchmark, onOp
 
       {/* Bottom bar */}
       <div className="flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
-        <div>
-          {t.footer.copyright}
+        <div className="flex items-center gap-3 flex-wrap">
+          <span>{t.footer.copyright}</span>
+          {onOpenAdmin && (
+            <button
+              onClick={onOpenAdmin}
+              className="text-slate-400 hover:text-emerald-700 transition-colors text-[11px] underline cursor-pointer"
+              title="Admin Console / एडमिन कंसोल"
+            >
+              ⚙️ Admin Portal
+            </button>
+          )}
         </div>
         <div className="flex items-center gap-2.5 flex-wrap">
           <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-emerald-50 text-emerald-700 border border-emerald-200">
